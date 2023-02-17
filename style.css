@@ -1,28 +1,25 @@
 *{
     margin: 0;
     padding: 0;
+    font-family: "Inter";
+    font-weight: 600;
 }
 
 .nav{
-    width: 310px;
-    height: 50px;
+    height: 3em;
     position: fixed;
     top: 0;
-    left: 50%;
-    transform: translateX(-50%);
     display: flex;
     align-items: center;
     justify-content: space-around;
-    opacity: .3;
-    transition: opacity .5s;
-}
-.nav:hover{
     opacity: 1;
+    background-color: #dedede;
 }
 
 .clr{
-    height: 30px;
-    width: 30px;
+    margin-left: 1em;
+    height: 1em;
+    width: 1em;
     background-color: blue;
     border-radius: 50%;
     border: 3px solid rgb(214, 214, 214);
@@ -47,6 +44,16 @@
     background-color: #fff;
 }
 
+#brush {
+    margin-left: 1em;
+    margin-right: 2em;
+    width: 60px;
+    height: 30px;
+    border-radius: 5%;
+    border: 3px solid rgb(214, 214, 214);
+    
+}
+
 button{
     border: none;
     outline: none;
@@ -54,7 +61,16 @@ button{
     border-radius: 3px;
     background-color: #03bb56;
     color: #fff;
+    margin-right:1em;
+    
 }
+
+button:hover {
+    
+    transform:  scale(1.2);
+    
+}
+
 .save{
     background-color: #0f65d4;
 }
