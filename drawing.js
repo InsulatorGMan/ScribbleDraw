@@ -28,6 +28,8 @@ document.getElementById('brush').addEventListener('input', (ev) => {
     
 })
 
+
+// ------------------------------------------------
 let customColor = document.getElementById('customColor');
 let input = document.createElement('input');
 input.type = 'color';
@@ -37,14 +39,17 @@ input.style.height = 0;
 customColor.addEventListener("click", () => {
 
     input.click();
+    customColor.dataset.clr = input.value;
     
 });
 
 input.onchange = _ => {
     
-    customColor.dataset.clr = input.value;
     customColor.style.backgroundColor = input.value;
+    customColor.dataset.clr = input.value;
 };
+
+// --
 
 let clearBtn = document.querySelector(".clear")
 clearBtn.addEventListener("click", () => {
