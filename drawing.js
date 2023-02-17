@@ -22,6 +22,12 @@ clrs.forEach(clr => {
     })
 })
 
+window.onresize = _ => {
+       
+    canvas.height = window.innerHeight
+    canvas.width = window.innerWidth
+    
+}
 document.getElementById('brush').addEventListener('input', (ev) => {
     
     ctx.lineWidth = ev.target.value
