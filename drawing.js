@@ -42,27 +42,6 @@ function readImage(file) {
   return reader.readAsDataURL(file);
 }
 
-function importData() {
-  let input = document.createElement('input');
-  input.type = 'file';
-  input.onchange = _ => {
-    // you can use this method to get file and perform respective operations
-            let files =   Array.from(input.files);
-            console.log(files);
-            ctx.drawImage(readImage(files[0]);
-        };
-  input.click();
-    
-}
-
-
-
-document.querySelector(".load").addEventListener("click", () => {
-
-    importData();
-    
-});
-
 let clearBtn = document.querySelector(".clear")
 clearBtn.addEventListener("click", () => {
     ctx.clearRect(0, 0, canvas.width, canvas.height)
