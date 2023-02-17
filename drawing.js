@@ -11,6 +11,9 @@ ctx.lineWidth = 5 // pixels
 
 let draw = false
 
+
+document.getElementById('nav').style.width = innerWidth
+
 let clrs = document.querySelectorAll(".clr")
 clrs = Array.from(clrs)
 clrs.forEach(clr => {
@@ -19,12 +22,12 @@ clrs.forEach(clr => {
     })
 })
 
-let brush_size_selector = document.querySelector(".brs")
-brush_size_selector.addEventListener('onchange', () => {
+document.getElementById('brush').addEventListener('input', (ev) => {
+    
+    ctx.lineWidth = ev.target.value
+    
+})
 
-    ctx.lineWidth = brush_size_selector.value;
-
-});
 
 let clearBtn = document.querySelector(".clear")
 clearBtn.addEventListener("click", () => {
@@ -45,6 +48,8 @@ saveBtn.addEventListener("click", () => {
 
 window.addEventListener("mousedown", (e) => draw = true)
 window.addEventListener("mouseup", (e) => draw = false)
+window.addEventListener("touchstart", (e) => draw = true)
+window.addEventListener("touchend", (e) => draw = false)
 
 window.addEventListener("mousemove", (e) => {
     if(prevX == null || prevY == null || !draw){
@@ -60,7 +65,24 @@ window.addEventListener("mousemove", (e) => {
     ctx.moveTo(prevX, prevY)
     ctx.lineTo(currentX, currentY)
     ctx.stroke()
+    prevX = currentX
+    prevY = currentY
+})
 
+window.addEventListener("touchmove", (e) => {
+    if(prevX == null || prevY == null || !draw){
+        prevX = e.touches[0].clientX
+        prevY = e.touches[0].clientY
+        return
+    }
+
+    let currentX = e.touches[0].clientX
+    let currentY = e.touches[0].clientY
+
+    ctx.beginPath()
+    ctx.moveTo(prevX, prevY)
+    ctx.lineTo(currentX, currentY)
+    ctx.stroke()
     prevX = currentX
     prevY = currentY
 })
