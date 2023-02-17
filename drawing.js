@@ -7,7 +7,7 @@ const ctx = canvas.getContext("2d")
 let prevX = null
 let prevY = null
 
-ctx.lineWidth = 5
+ctx.lineWidth = 5 // pixels
 
 let draw = false
 
@@ -18,6 +18,13 @@ clrs.forEach(clr => {
         ctx.strokeStyle = clr.dataset.clr
     })
 })
+
+let brush_size_selector = document.querySelector(".brs")
+brush_size_selector.addEventListener('onchange', () => {
+
+    ctx.lineWidth = brush_size_selector.value;
+
+});
 
 let clearBtn = document.querySelector(".clear")
 clearBtn.addEventListener("click", () => {
