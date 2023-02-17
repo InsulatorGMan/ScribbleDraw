@@ -28,6 +28,20 @@ document.getElementById('brush').addEventListener('input', (ev) => {
     
 })
 
+function readImage(file) {
+  // Check if the file is an image.
+  if (file.type && !file.type.startsWith('image/')) {
+    console.log('File is not an image.', file.type, file);
+    return;
+  }
+
+  const reader = new FileReader();
+  reader.addEventListener('load', (event) => {
+    img.src = event.target.result;
+  });
+  return reader.readAsDataURL(file);
+}
+
 function importData() {
   let input = document.createElement('input');
   input.type = 'file';
@@ -35,10 +49,13 @@ function importData() {
     // you can use this method to get file and perform respective operations
             let files =   Array.from(input.files);
             console.log(files);
+            ctx.drawImage(readImage(files[0]);
         };
   input.click();
-  
+    
 }
+
+
 
 document.querySelector(".load").addEventListener("click", () => {
 
