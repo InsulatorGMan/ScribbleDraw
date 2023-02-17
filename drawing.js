@@ -28,19 +28,23 @@ document.getElementById('brush').addEventListener('input', (ev) => {
     
 })
 
-function readImage(file) {
-  // Check if the file is an image.
-  if (file.type && !file.type.startsWith('image/')) {
-    console.log('File is not an image.', file.type, file);
-    return;
-  }
+let customColor = document.getElementById('customColor');
+let input = document.createElement('input');
+input.type = 'color';
+input.style.width = 0;
+input.style.height = 0;
 
-  const reader = new FileReader();
-  reader.addEventListener('load', (event) => {
-    img.src = event.target.result;
-  });
-  return reader.readAsDataURL(file);
-}
+customColor.addEventListener("click", () => {
+
+    input.click();
+    
+});
+
+input.onchange = _ => {
+    
+    customColor.dataset.clr = input.value;
+    customColor.style.backgroundColor = input.value;
+};
 
 let clearBtn = document.querySelector(".clear")
 clearBtn.addEventListener("click", () => {
