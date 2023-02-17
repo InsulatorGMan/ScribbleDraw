@@ -40,6 +40,7 @@ customColor.addEventListener("click", () => {
 
     input.click();
     customColor.dataset.clr = input.value;
+    ctx.strokeStyle = customColor.dataset.clr
     
 });
 
@@ -47,6 +48,7 @@ input.onchange = _ => {
     
     customColor.style.backgroundColor = input.value;
     customColor.dataset.clr = input.value;
+    ctx.strokeStyle = customColor.dataset.clr
 };
 
 // --
